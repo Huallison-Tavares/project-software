@@ -3,6 +3,11 @@
 
 @section('content')
     <main>
+
+        @if(session('loginError'))
+            <p>{{ session('loginError') }}</p>
+        @endif
+
         <form action="{{ route('login') }}" method="POST">
             @csrf
             <label for="email">
