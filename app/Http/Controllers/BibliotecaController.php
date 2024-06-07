@@ -14,25 +14,14 @@ class BibliotecaController extends Controller
      */
     public function index()
     {
-        return view("dashboard.biblioteca");
+        return view("dashboard.library");
     }
+
     public function registerBook()
     {
         return view("dashboard.book-register");
     }
-    
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         Validator::make($request->all(), [
@@ -40,45 +29,46 @@ class BibliotecaController extends Controller
             'title' => ['required', 'string'],
             'subtitle' => ['required', 'string'],
             'edition' => ['required', 'string'],
-            'book-publisher' => ['required', 'string'],
-            'year-publication' => ['required'],
-            'book-cover' => [],
+            'book_publisher' => ['required', 'string'],
+            'year_publication' => ['required'],
+            'book_cover' => [],
         ])->validate();
 
-        // Id do user
-        Book::create($request->except('_token'));
-        return redirect()->action('dashboard');
+        
+        $idUser =  ["user_id" => Auth::user()->id];
+        $book = array_merge($idUser, $request->except('_token'));
+
+        Book::create($book);
+        return redirect()->action([BibliotecaController::class, 'index']);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function showBooks()
     {
-        //
+        // $books = Book::where("user_id", Auth::user()->id)->get();
+        $books = Book::paginate(1);
+        // return view("dashboard.book-show", ['books' => $books]);
+        return view("dashboard.book-show", compact('books'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function editBook(string $id)
     {
-        //
+        $book = Book::where("id", $id)->first();
+        if($book){
+            return view("dashboard.book-edit", ['book' => $book]);
+        }
+        return redirect()->action($this->showBooks());
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
+        // $idUser =  ["user_id" => Auth::user()->id];
+        Book::where("id", $id)->update($request->except('_token'));
+        return redirect("/dashboard/livros");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        Book::destroy($id);
+        return redirect("/dashboard/livros");
     }
 }

@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string("title");
             $table->string("subtitle");
             $table->string("edition");
-            $table->string("book-publisher");
+            $table->string("book_publisher");
             $table->year("year_publication");
-            $table->string("book_cover");
+            $table->string("book_cover")->nullable();
             $table->timestamps();
         });
     }

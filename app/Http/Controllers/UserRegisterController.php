@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class UserRegisterController extends Controller
@@ -20,7 +21,8 @@ class UserRegisterController extends Controller
         ])->validate();
 
         User::create($request->only(['name', 'password', 'email']));
-
-        return redirect("/");
+        $user = User::where('email', $request->email)->first();
+        Auth::login($user);
+        return redirect()->action([BibliotecaController::class, 'index']);
     }
 }

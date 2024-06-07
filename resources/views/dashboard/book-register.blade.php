@@ -29,17 +29,17 @@
             Edição:
             <input type="text" required placeholder="Ex: 1° Edição" id="edition" name="edition">
         </label>
-        <label for="book-publisher">
+        <label for="book_publisher">
             Editora:
-            <input type="text" required placeholder="Ex: Editora" id="book-publisher" name="book-publisher">
+            <input type="text" required placeholder="Ex: Editora" id="book_publisher" name="book_publisher">
         </label>
-        <label for="year-publication">
+        <label for="year_publication">
             Ano de Publicação:
-            <input type="number" min="1900" max="{{ date("Y") }}" required placeholder="Ex: 2024" id="year-publication" name="year-publication">
+            <input type="number" min="1900" max="{{ date("Y") }}" required placeholder="Ex: 2024" id="year_publication" name="year_publication">
         </label>
-        <label for="book-cover">
+        <label for="book_cover">
             Capa do Livro:
-            <input type="file" id="book-cover" name="book-cover">
+            <input type="file" id="book_cover" name="book_cover">
         </label>
 
         <input type="submit" value="Cadastrar">
