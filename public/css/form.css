@@ -1,0 +1,84 @@
+body, main{
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dedede;
+    overflow-x: hidden;
+}
+
+main > form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    gap: 20px;
+    width: 400px;
+    height: 60vh;
+    background-color: #ffffff;
+    border-radius: 30px;
+}
+
+main > form > img{
+    width: 150px;
+    margin-top: -100px;
+}
+
+main > form > .inputs{
+    width: 80%;
+    height: 20vh;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main > form > .inputs > label{
+    display: flex;
+    font-size: 18px;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+main > form > .inputs > label > input{
+    border: 0;
+    border-bottom: 1px #1e1e1e solid;
+    font-size: 16px;
+}
+
+main > form > .inputs > label > input:focus{
+    outline: 0;
+    box-shadow: none;
+    border-bottom: 1px #1e1e1e solid;
+}
+
+main > form > a{
+    color: #0000009e;
+    font-size: 16px;
+
+}
+
+main > form > input{
+    width: 80%;
+    height: 50px;
+    cursor: pointer;
+    background-color: #006be4;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    border-radius: 20px;
+    border: 0;
+}
+
+main > form > p.errors{
+    color: #ff0000;
+    padding: 5px 0px;
+    border: 1px #ff0000 solid;
+    background-color: #ff000027;
+    width: 80%;
+    text-align: center;
+}

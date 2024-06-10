@@ -23,6 +23,6 @@ class UserRegisterController extends Controller
         User::create($request->only(['name', 'password', 'email']));
         $user = User::where('email', $request->email)->first();
         Auth::login($user);
-        return redirect()->action([BibliotecaController::class, 'index']);
+        return redirect()->action([LibraryController::class, 'index']);
     }
 }

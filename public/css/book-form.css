@@ -1,0 +1,93 @@
+body, main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #dedede;
+    overflow-x: hidden;
+}
+
+main > form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    gap: 20px;
+    width: 400px;
+    height: max-content;
+    background-color: #ffffff;
+    border-radius: 30px;
+    margin: 100px 0 20px 0;
+    padding: 20px 0;
+}
+
+main > form > img{
+    width: 150px;
+    /* height: 150px; */
+    margin-top: -100px;
+}
+
+main > form > .inputs{
+    width: 80%;
+    height: max-content;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+main > form > .inputs > label{
+    display: flex;
+    font-size: 18px;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+main > form > .inputs > label > input{
+    border: 0;
+    border-bottom: 1px #1e1e1e solid;
+    font-size: 16px;
+}
+
+main > form > .inputs > label > input:focus{
+    outline: 0;
+    box-shadow: none;
+    border-bottom: 1px #1e1e1e solid;
+}
+
+main > form > .inputs > label:nth-last-child(1) > input{
+    display: flex;
+    
+    border: 0;
+}
+
+main > form > a{
+    color: #0000009e;
+    font-size: 16px;
+
+}
+
+main > form > input{
+    width: 80%;
+    height: 50px;
+    cursor: pointer;
+    background-color: #006be4;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ffffff;
+    border-radius: 20px;
+    border: 0;
+}
+
+main > form > p.errors{
+    color: #ff0000;
+    padding: 5px 0px;
+    border: 1px #ff0000 solid;
+    background-color: #ff000027;
+    width: 80%;
+    text-align: center;
+}

@@ -1,0 +1,22 @@
+header{
+    height: 12vh;
+    width: 100vw;
+    background-color: #006be4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0px 0px 20px 20px;
+}
+
+header > nav > ul{
+    margin:0;
+    display: flex;
+    width: 60vw;
+    justify-content: space-evenly;
+    font-size: 18px;
+}
+
+header > nav > ul > li > a{
+    color: #ffffff;
+}

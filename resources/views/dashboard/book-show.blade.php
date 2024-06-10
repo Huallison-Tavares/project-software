@@ -1,5 +1,9 @@
 @extends("layouts.layout-dashboard")
 @section("title", "Meus Livros")
+@section('links-css')
+    <link rel="stylesheet" href="/css/listar.css">
+    <link rel="stylesheet" href="/css/header.css">
+@endsection
 
 @section("content")
     @if ($books->all())
@@ -25,10 +29,10 @@
                         <td>{{ $book->edition }}</td>
                         <td>{{ $book->book_publisher }}</td>
                         <td>{{ $book->year_publication }}</td>
-                        <th>
-                            <button><a href="editar/{{ $book->id }}">Editar</a></button>
-                            <button><a href="remover/{{ $book->id }}">Excluir</a></button>
-                        </th>
+                        <td>
+                            <a href="editar/{{ $book->id }}"><button><img src="/img/icons8-edit-60.png" alt="Editar"></button></a>
+                            <a href="remover/{{ $book->id }}"><button><img src="/img/icons8-trash-64.png" alt="Deletar"></button></a>
+                        </td>
                     </tr>
                 @endforeach
 

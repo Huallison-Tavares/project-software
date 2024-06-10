@@ -1,0 +1,96 @@
+body{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+.background{
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    clip-path: circle(80% at 6% 57%);
+    background-color: #469cff;
+    position: absolute;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 12vh;
+}
+
+header > nav{
+    display: flex;
+    width: 80vw;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > nav > .logo > img{
+    width: 80px;
+}
+
+header > nav > ul > li > a > button{
+    width: 100px;
+    height: 50px;
+    font-size: 15px;
+    border-radius: 15px;
+    background-color: #0b7dff;
+    font-weight: 600;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+main{
+    height: 88vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main > .content,
+main > .img{
+    width: 45vw;
+}
+
+main > .content{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+main > .content > h1{
+    font-size: 70px;
+} 
+
+main > .content > a,
+main > .content > a > button{
+    width: 150px;
+    height: 50px;
+}
+
+main > .content > a > button{
+    background-color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    color: #006be4;
+    border-radius: 20px;
+    border: 0;
+
+    transition: all 0.5s;
+}
+
+main > .content > a > button:hover{
+    background-color: #006be4;
+    color: #ffffff;
+}
+
+main > .img > img{
+    width: 500px;
+}

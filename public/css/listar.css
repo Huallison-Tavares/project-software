@@ -1,0 +1,44 @@
+body{
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+main{
+    width: 80vw;
+    margin-top: 20px;
+}
+
+main > table{
+    width: 100%;
+    /* border: 1px black solid; */
+}
+
+main > table > thead > tr{
+    color: #ffffff;
+    background-color: #006be4;
+}
+
+main > table > thead > tr > th,
+main > table > tbody > tr > td{
+    padding: 0;
+    text-align: center;
+}
+
+main > table > tbody > tr:nth-child(2n){
+    background-color: #d6d6d6;
+}
+
+main > table > tbody > tr > td > a > button > img{
+    width: 20px;
+}
+
+main > table > tbody > tr > td > a > button{
+    cursor:pointer;
+    background: transparent;
+    border: none;
+}
