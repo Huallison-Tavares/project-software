@@ -12,7 +12,7 @@ class LibraryController extends Controller
     
     public function index()
     {
-        $books = Book::paginate(20);
+        $books = Book::where("usuario", auth()->user()->id)->paginate(20);
         return view("dashboard.library", compact('books'));
     }
 
@@ -52,7 +52,7 @@ class LibraryController extends Controller
 
     public function showBooks()
     {
-        $books = Book::paginate(40);
+        $books = Book::where("usuario", auth()->user()->id)->paginate(40);
         return view("dashboard.book-show", compact('books'));
     }
 
