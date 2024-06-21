@@ -40,7 +40,7 @@
             </label>
             <label for="year_publication">
                 Ano de Publicação:
-                <input value="{{ $book->year_publication }}" type="number" min="1900" max="{{ date("Y") }}" required placeholder="Ex: 2024" id="year_publication" name="year_publication">
+                <input value="{{ $book->year_publication }}" type="number" max="{{ date("Y") }}" required placeholder="Ex: 2024" id="year_publication" name="year_publication">
             </label>
             <label for="book_cover">
                 Capa do Livro:

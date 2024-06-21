@@ -16,9 +16,10 @@ main > form{
     
     gap: 20px;
     width: 400px;
-    height: 60vh;
+    height: max-content;
     background-color: #ffffff;
     border-radius: 30px;
+    padding: 20px 0;
 }
 
 main > form > img{

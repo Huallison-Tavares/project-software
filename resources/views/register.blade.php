@@ -5,10 +5,15 @@
 @endsection
 
 @section('content')
-    <main>
-        <form action="{{ route('register') }}" method="POST">
-            @csrf
-            <img src="./img/user.png" alt="Usuario">
+<main>
+    <form action="{{ route('register') }}" method="POST">
+        @csrf
+        <img src="./img/user.png" alt="Usuario">
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <p class="errors">{{ $error }}</p>
+            @endforeach
+        @endif
             <div class="inputs">
                 <label for="name">
                     Nome:
@@ -20,20 +25,15 @@
                 </label>
                 <label for="password">
                     Senha:
-                    <input type="password" value="{{ old("password") }}" required placeholder="Senha..." id="password" name="password">
+                    <input type="password" value="{{ old("password") }}" required placeholder="Senha de pelo menos 8 caracteres" id="password" name="password">
                 </label>
                 <label for="password_confirmation">
                     Confirmar Senha:
-                    <input type="password" value="{{ old("password_confirmation") }}" required placeholder="Senha..." id="password_confirmation" name="password_confirmation">
+                    <input type="password" value="{{ old("password_confirmation") }}" required placeholder="Senha de pelo menos 8 caracteres" id="password_confirmation" name="password_confirmation">
                 </label>
             </div>
             
-            @if ($errors->any())
-                @foreach ($errors->all() as $error)
-                    <p class="errors">{{ $error }}</p>
-                @endforeach
-            @endif
-
+            
             <input type="submit" value="Cadastrar">
         </form>
     </main>

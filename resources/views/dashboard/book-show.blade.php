@@ -1,7 +1,7 @@
 @extends("layouts.layout-dashboard")
 @section("title", "Meus Livros")
 @section('links-css')
-    <link rel="stylesheet" href="/css/listar.css">
+    <link rel="stylesheet" href="/css/show.css">
     <link rel="stylesheet" href="/css/header.css">
 @endsection
 
@@ -41,7 +41,7 @@
         <br>
         {{ $books->links() }}
     @else
-        <p>Não tem livros</p>
+        <p>Nenhum Livro Cadastrado</p>
     @endif
 
 

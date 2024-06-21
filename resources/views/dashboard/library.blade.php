@@ -2,11 +2,12 @@
 @section('title', "Biblioteca")
 @section('links-css')
     <link rel="stylesheet" href="/css/library.css">
+    <link rel="stylesheet" href="/css/header.css">
 @endsection
 
 
 @section('content')
-    <h1>Sua Bibliotaca</h1>
+    <h1>Sua Biblioteca</h1>
     <hr>
 
     @if ($books->all())
@@ -22,6 +23,6 @@
         
         {{ $books->links() }}
     @else
-        <p>Nada Aqui</p>
+        <p>Nenhum Livro Cadastrado</p>
     @endif
 @endsection

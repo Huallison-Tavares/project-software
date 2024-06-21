@@ -14,9 +14,10 @@
             <ul>
                 <li>
                     @if (auth()->user())
-                        <a href="{{ route('logout') }}">
-                            <button>Sair</button>
-                        </a>
+                        <form action="{{ route("logout") }}" method="post">
+                            @csrf
+                            <input type="submit" value="Sair">
+                        </form>
                     @else
                         <a href="{{ route('login') }}">
                             <button>Entrar</button>

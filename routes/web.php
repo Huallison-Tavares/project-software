@@ -9,15 +9,18 @@ Route::get("/", function(){
     return view("index");
 })->name("home");
 
-Route::get('registrar', [UserRegisterController::class, 'index'])->name("register");
-Route::post('registrar', [UserRegisterController::class, 'store'])->name("register");
+Route::middleware("guest")->group(function () {
+    Route::get('registrar', [UserRegisterController::class, 'index'])->name("register");
+    Route::post('registrar', [UserRegisterController::class, 'store'])->name("register");
+    
+    Route::get('login', [UserLoginController::class, 'index'])->name("login");
+    Route::post('login', [UserLoginController::class, 'login'])->name("login");
+});
 
-Route::get('login', [UserLoginController::class, 'index'])->name("login");
-Route::post('login', [UserLoginController::class, 'login'])->name("login");
 
 Route::middleware("auth")->prefix("dashboard")->group(function () {
     Route::get("/", [LibraryController::class, 'index'])->name('dashboard');
-    Route::get("logout", [UserLoginController::class, 'logout'])->name('logout');
+    Route::post("logout", [UserLoginController::class, 'logout'])->name('logout');
     Route::get("cadastrar", [LibraryController::class, 'registerBook'])->name('book-register');
     Route::post("cadastrar", [LibraryController::class, 'store'])->name('book-register');
     Route::get("livros", [LibraryController::class, 'showBooks'])->name('book-show');

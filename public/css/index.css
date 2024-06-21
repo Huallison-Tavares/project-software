@@ -46,6 +46,18 @@ header > nav > ul > li > a > button{
     cursor: pointer;
 }
 
+header > nav > ul > li > form > input{
+    width: 100px;
+    height: 50px;
+    font-size: 15px;
+    border-radius: 15px;
+    background-color: #0b7dff;
+    font-weight: 600;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
 main{
     height: 88vh;
     display: flex;

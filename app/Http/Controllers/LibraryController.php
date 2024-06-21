@@ -12,7 +12,7 @@ class LibraryController extends Controller
     
     public function index()
     {
-        $books = Book::where("usuario", auth()->user()->id)->paginate(20);
+        $books = Book::where("user_id", Auth::id())->paginate(20);
         return view("dashboard.library", compact('books'));
     }
 
@@ -24,7 +24,7 @@ class LibraryController extends Controller
     public function store(Request $request)
     {
         Validator::make($request->all(), [
-            'author' => ['required', 'min:3', 'string'],
+            'author' => ['required', 'string'],
             'title' => ['required', 'string'],
             'subtitle' => ['required', 'string'],
             'edition' => ['required', 'string'],
@@ -43,26 +43,26 @@ class LibraryController extends Controller
             $imageName = "no-image.png";
         }
 
-        $addData =  ["user_id" => Auth::user()->id, 'book_cover' => $imageName];
+        $addData =  ["user_id" => Auth::id(), 'book_cover' => $imageName];
         $book = array_merge($addData, $request->except('_token', 'book_cover'));
 
         Book::create($book);
-        return redirect()->action($this->index());
+        return redirect()->route("dashboard");
     }
 
     public function showBooks()
     {
-        $books = Book::where("usuario", auth()->user()->id)->paginate(40);
+        $books = Book::where("user_id", Auth::id())->paginate(40);
         return view("dashboard.book-show", compact('books'));
     }
 
     public function editBook(string $id)
     {
-        $book = Book::where("id", $id)->first();
+        $book = Book::find($id)->first();
         if($book){
             return view("dashboard.book-edit", ['book' => $book]);
         }
-        return redirect()->action($this->showBooks());
+        return redirect()->route("book-show");
     }
 
     public function update(Request $request, string $id)
@@ -91,13 +91,13 @@ class LibraryController extends Controller
             $book = $request->except('_token', 'book_cover');
         }
 
-        Book::where("id", $id)->update($book);
-        return redirect("/dashboard/livros");
+        Book::find($id)->update($book);
+        return redirect()->route("book-show");
     }
 
     public function destroy(string $id)
     {
         Book::destroy($id);
-        return redirect("/dashboard/livros");
+        return redirect()->route("book-show");
     }
 }

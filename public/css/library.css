@@ -9,29 +9,6 @@ body{
     text-align: center;
 }
 
-header{
-    height: 12vh;
-    width: 100vw;
-    background-color: #006be4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    border-radius: 0px 0px 20px 20px;
-}
-
-header > nav > ul{
-    display: flex;
-    width: 60vw;
-    justify-content: space-evenly;
-    font-size: 18px;
-    margin:0;
-}
-
-header > nav > ul > li > a{
-    color: #ffffff;
-}
-
 main{
     width: 80vw;
 }

@@ -8,7 +8,7 @@
     <main>        
         <form action="{{ route('login') }}" method="POST">
             @csrf
-            <img src="./img/user.png" alt="Usuario">
+            <img src="/img/user.png" alt="Usuario">
             
             @if(session('loginError'))
                 <p class="errors">{{ session('loginError') }}</p>
@@ -20,7 +20,7 @@
                 </label>
                 <label for="password">
                     Senha:
-                    <input type="password" placeholder="Senha..." id="password" name="password">
+                    <input type="password" placeholder="Senha de pelo menos 8 caracteres" id="password" name="password">
                 </label>
             </div>
             

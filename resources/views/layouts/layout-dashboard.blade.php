@@ -17,7 +17,11 @@
                 <li><a href="{{ route("dashboard") }}">Biblioteca</a></li>
                 <li><a href="{{ route("book-register") }}">Cadastrar Livros</a></li>
                 <li><a href="{{ route("book-show") }}">Editar Livros</a></li>
-                <li><a href="{{ route("logout") }}">Sair</a></li>
+                <li>
+                    <form action="{{ route("logout") }}" method="post">
+                        @csrf
+                        <input type="submit" value="Sair">
+                    </form>
             </ul>
         </nav>
     </header>

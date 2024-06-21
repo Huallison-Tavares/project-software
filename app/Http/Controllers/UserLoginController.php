@@ -19,17 +19,19 @@ class UserLoginController extends Controller
         if($user){
             if(Hash::check($request->password, $user->password)){
                 Auth::loginUsingId($user->id, true);
-                return redirect("/dashboard");
+                return redirect()->route("dashboard");
             }
         }
 
-        return redirect()->action([UserLoginController::class, 'index'])->with("loginError", "Email ou Senha Incorretos !!!");
+        return redirect()->route("login")->with("loginError", "Email ou Senha Incorretos !!!");
 
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
-        return redirect("/");
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route("home");
     }
 }
