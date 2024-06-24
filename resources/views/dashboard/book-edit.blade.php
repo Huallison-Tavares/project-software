@@ -43,7 +43,7 @@
                 <input value="{{ $book->year_publication }}" type="number" max="{{ date("Y") }}" required placeholder="Ex: 2024" id="year_publication" name="year_publication">
             </label>
             <label for="book_cover">
-                Capa do Livro:
+                Capa do Livro (Opcional):
                 <input type="file" id="book_cover" name="book_cover">
             </label>
         </div>

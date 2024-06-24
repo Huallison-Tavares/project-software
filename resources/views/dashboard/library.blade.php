@@ -7,7 +7,7 @@
 
 
 @section('content')
-    <h1>Sua Biblioteca</h1>
+    <h1>Biblioteca de {{ auth()->user()->name }}</h1>
     <hr>
 
     @if ($books->all())

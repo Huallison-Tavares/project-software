@@ -16,6 +16,10 @@ main{
     align-items: center;
 }
 
+main > h1{
+    margin: 30px 0 30px 0;
+}
+
 main > table{
     width: 100%;
     /* border: 1px black solid; */

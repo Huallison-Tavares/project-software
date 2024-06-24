@@ -6,6 +6,8 @@
 @endsection
 
 @section("content")
+    <h1>Editar Livros</h1>
+
     @if ($books->all())
         <table>
             <thead>
