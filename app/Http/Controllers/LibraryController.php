@@ -58,7 +58,7 @@ class LibraryController extends Controller
 
     public function editBook(string $id)
     {
-        $book = Book::find($id)->first();
+        $book = Book::where("id", $id)->first();
         if($book){
             return view("dashboard.book-edit", ['book' => $book]);
         }
@@ -91,7 +91,7 @@ class LibraryController extends Controller
             $book = $request->except('_token', 'book_cover');
         }
 
-        Book::find($id)->update($book);
+        Book::where("id", $id)->first()->update($book);
         return redirect()->route("book-show");
     }
 
